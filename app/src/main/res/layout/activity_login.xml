@@ -28,8 +28,7 @@
         android:layout_height="68dp"
         android:background="@drawable/btn_shape"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -43,8 +42,7 @@
         android:layout_height="68dp"
         android:background="@drawable/btn_shape"
         android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -53,7 +51,7 @@
         app:layout_constraintVertical_bias="0.544" />
 
     <Button
-        android:id="@+id/regis_btn2"
+        android:id="@+id/login_btn2"
         android:layout_width="366dp"
         android:layout_height="55dp"
         android:background="@drawable/btn_shape"
@@ -68,7 +66,7 @@
         app:layout_constraintVertical_bias="0.23" />
 
     <Button
-        android:id="@+id/login_btn2"
+        android:id="@+id/regis_btn"
         android:layout_width="366dp"
         android:layout_height="55dp"
         android:background="@drawable/btn_shape"
@@ -81,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_btn2"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn2"
         app:layout_constraintVertical_bias="0.488" />
 
     <TextView
@@ -97,7 +95,7 @@
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <TextView
         android:id="@+id/textView5"
@@ -115,19 +113,17 @@
         app:layout_constraintVertical_bias="0.452" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="20dp"
         android:text="Dont have an account?"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/login_btn2"
-        app:layout_constraintTop_toBottomOf="@+id/regis_btn2"
-        app:layout_constraintVertical_bias="0.125"
-        tools:layout_editor_absoluteX="102dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toTopOf="@+id/regis_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
