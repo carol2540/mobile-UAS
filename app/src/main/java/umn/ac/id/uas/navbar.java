@@ -42,7 +42,6 @@ public class navbar extends AppCompatActivity {
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                         return true;
-
                 }
 
                 return false;

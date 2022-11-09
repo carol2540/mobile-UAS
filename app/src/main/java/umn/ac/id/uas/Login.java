@@ -19,9 +19,10 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView email = (TextView) findViewById(R.id.login_email);
-        TextView password = (TextView) findViewById(R.id.login_password);
+        TextView password = (TextView) findViewById(R.id.login_password) ;
 
         Button loginbtn = (Button) findViewById(R.id.login_btn2);
+        Button regisBtn = (Button) findViewById(R.id.regis_btn);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,16 @@ public class Login extends AppCompatActivity {
                     startActivity(intent);
                 }else
                     Toast.makeText(Login.this, "Login Gagal",Toast.LENGTH_SHORT).show();
+//                    Intent intent3 = new Intent(Login.this, MainActivity.class);
+//                    startActivity(intent3);
+            }
+        });
+
+        regisBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(Login.this, Regis.class);
+                startActivity(intent2);
             }
         });
     }
