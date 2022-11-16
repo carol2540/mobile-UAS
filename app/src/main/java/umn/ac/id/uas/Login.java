@@ -33,8 +33,6 @@ public class Login extends AppCompatActivity {
                     startActivity(intent);
                 }else
                     Toast.makeText(Login.this, "Login Gagal",Toast.LENGTH_SHORT).show();
-//                    Intent intent3 = new Intent(Login.this, MainActivity.class);
-//                    startActivity(intent3);
             }
         });
 

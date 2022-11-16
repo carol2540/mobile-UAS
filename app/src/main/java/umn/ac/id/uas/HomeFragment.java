@@ -50,13 +50,13 @@ public class HomeFragment extends Fragment {
 
         foodHeading = new String[]{
                 getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_1),
+                getString(R.string.foodHead_2),
+                getString(R.string.foodHead_3),
+                getString(R.string.foodHead_4),
+                getString(R.string.foodHead_5),
+                getString(R.string.foodHead_6),
+                getString(R.string.foodHead_7),
+                getString(R.string.foodHead_8),
         };
 
         foodImageResource = new int[]{
