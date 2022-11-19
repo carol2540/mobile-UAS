@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="foodHead_1">Rice Bowl Complete.</string>
+    <string name="foodHead_1">Rice Bowl Special</string>
     <string name="foodHead_2">Spicy Korean Ramen Noodles</string>
     <string name="foodHead_3">Smokey Salmon Ketchup </string>
     <string name="foodHead_4">Peperoni Pizza Roll</string>
@@ -20,6 +20,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_recipe">RecipeActivity</string>
     <!--    <string name="foodHead_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>-->
     <!--    <string name="foodHead_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>-->
     <!--    <string name="foodHead_4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>-->

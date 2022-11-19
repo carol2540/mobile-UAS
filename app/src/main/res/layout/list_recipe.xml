@@ -10,7 +10,7 @@
     android:paddingTop="8dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/food_image"
+        android:id="@+id/recipe_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:adjustViewBounds="true"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/foodHeading"
+        android:id="@+id/recipe_hading"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,33 +31,49 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/food_image"
+        app:layout_constraintStart_toEndOf="@+id/recipe_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="12dp"
         android:background="@color/underline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/food_image"
-        android:layout_marginTop="12dp"/>
+        app:layout_constraintTop_toBottomOf="@id/recipe_image" />
 
     <Button
-        android:id="@+id/btn_recpie"
-        android:layout_width="115dp"
-        android:layout_height="36dp"
+        android:id="@+id/btn_edit"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/btn_shape"
-        android:backgroundTint="@color/black"
-        android:text="See recpie"
-        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:text="EDIT"
+        android:background="#1886f7"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/recipe_image"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_hading"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="172dp"
+        android:text="Delete"
+        android:textSize="7sp"
+        android:background="#e6473d"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/food_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintStart_toEndOf="@+id/btn_edit"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_hading"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email.getText().toString().equals("test@email.com")&& password.getText().toString().equals("tai123")){
+                if(email.getText().toString().equals("test@email.com")&& password.getText().toString().equals("hehe")){
                     Toast.makeText(Login.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this,navbar.class);
                     startActivity(intent);
