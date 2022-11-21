@@ -24,10 +24,12 @@
             android:exported="false" />
         <activity
             android:name=".Regis"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Register"/>
         <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="true"
+            android:label="Login"/>
         <activity
             android:name=".WelcomeActivity"
             android:exported="true" >

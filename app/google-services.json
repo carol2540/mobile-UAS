@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "858320658528",
+    "project_id": "ezrecipe-c91a8",
+    "storage_bucket": "ezrecipe-c91a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858320658528:android:80c710c4ec1ba7a340a305",
+        "android_client_info": {
+          "package_name": "umn.ac.id.uas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858320658528-t8ucf74dq8noitho7nsove6ei3m3ur8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "umn.ac.id.uas",
+            "certificate_hash": "bf2d15b9d3af535751c4e3b98de3a7832dd3ec27"
+          }
+        },
+        {
+          "client_id": "858320658528-1jnb9s8521sog87pf7nrscpj18jvhool.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9hjd0IaJAvVduY11gPXEJC5O-sOHbuYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858320658528-1jnb9s8521sog87pf7nrscpj18jvhool.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
