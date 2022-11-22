@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class navbar extends AppCompatActivity {
 
     private FirebaseUser firebaseUser;
-    private TextView textName;
+//    private TextView textName;
 
     BottomNavigationView bottomNavigationView;
 
