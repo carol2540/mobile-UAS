@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
     private FirebaseUser firebaseUser;
-    private TextView textName;
+//    private TextView textName;
 
     Button btnLogout;
     @Override
@@ -38,6 +38,7 @@ public class ProfileFragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), WelcomeActivity.class);
                 startActivity(intent);
             }
