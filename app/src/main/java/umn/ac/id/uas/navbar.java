@@ -52,12 +52,6 @@ public class navbar extends AppCompatActivity {
                         return true;
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
-//                        textName = findViewById(R.id.profile_title);
-//                        if(firebaseUser!=null){
-//                            textName.setText(firebaseUser.getDisplayName());
-//                        }else{
-//                            textName.setText("Login failed");
-//                        }
                         return true;
                 }
 
