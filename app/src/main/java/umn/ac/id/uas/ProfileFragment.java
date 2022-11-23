@@ -30,10 +30,13 @@ public class ProfileFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
         btnLogout=view.findViewById(R.id.btn_logout);
         TextView textName = (TextView) view.findViewById(R.id.profile_title);
+        TextView emailName = (TextView) view.findViewById(R.id.email_profile);
         if(firebaseUser!=null){
             textName.setText(firebaseUser.getDisplayName());
+            emailName.setText(firebaseUser.getEmail());
         }else{
-            textName.setText("Login failed");
+            textName.setText("Login username failed");
+            emailName.setText("Login email failed");
         }
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +50,3 @@ public class ProfileFragment extends Fragment {
     }
 
 }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.fragment_profile, container, false);
-//    }
