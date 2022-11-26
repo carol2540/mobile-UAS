@@ -3,24 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/COLLEGE/Semester 5/Exam/UAS/Mobile Application Programming/mobile-UAS/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/COLLEGE/Semester 5/Exam/UAS/Mobile Application Programming/mobile-UAS/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/COLLEGE/Semester 5/Exam/UAS/Mobile Application Programming/mobile-UAS/app/src/main/res/layout/activity_navbar.xml" value="0.22826086956521738" />
+        <entry key="..\:/COLLEGE/Semester 5/Exam/UAS/Mobile Application Programming/mobile-UAS/app/src/main/res/layout/activity_regis.xml" value="0.22826086956521738" />
+        <entry key="..\:/COLLEGE/Semester 5/Exam/UAS/Mobile Application Programming/mobile-UAS/app/src/main/res/layout/list_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/btn_shape.xml" value="0.1005" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/btncream_shape.xml" value="0.1665" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/button_shape.xml" value="0.1665" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_add.xml" value="0.107" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_exit.xml" value="0.2465" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_fastfood.xml" value="0.1665" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_home.xml" value="0.1665" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_person.xml" value="0.2095" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/drawable/ic_profile.xml" value="0.2095" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_buttom_nav.xml" value="0.24818840579710144" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_main.xml" value="0.20689655172413793" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_main2.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_navbar.xml" value="0.24818840579710144" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_recipe.xml" value="0.1" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/activity_regis.xml" value="0.2" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/content_recipe.xml" value="0.17119565217391305" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_first.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
@@ -28,8 +26,7 @@
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_recipes.xml" value="0.20516304347826086" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/fragment_second.xml" value="0.18297101449275363" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/list_item.xml" value="0.4" />
-        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/list_recipe.xml" value="0.264" />
+        <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/list_item.xml" value="0.1" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/navbar.xml" value="0.20516304347826086" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/regis.xml" value="0.1" />
         <entry key="..\:/Users/Klaudius Carol/Documents/college/Semester 5/Mobile Programming/Final-project/app/src/main/res/layout/welcome.xml" value="0.2" />
