@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.imageview.ShapeableImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,8 +36,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Food food = foodArrayList.get(position);
-        holder.foodHeading.setText(food.heading);
-        holder.foodImage.setImageResource(food.foodImage);
+        holder.foodHeading.setText(food.getHeading());
+        Picasso.get().load(food.getFoodImage()).into(holder.foodImage);
     }
 
     @Override

@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class RecipeFragment extends Fragment {
     private ArrayList<Food> foodArrayList;
-    private String[] foodHeading;
-    private int[] foodImageResource;
+//    private String[] foodHeading;
+//    private int[] foodImageResource;
     private RecyclerView recyclerview;
 
     @Override
@@ -46,34 +46,34 @@ public class RecipeFragment extends Fragment {
     }
 
     private void dataInitialize() {
-        foodArrayList = new ArrayList<>();
-
-        foodHeading = new String[]{
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_2),
-                getString(R.string.foodHead_3),
-                getString(R.string.foodHead_4),
-                getString(R.string.foodHead_5),
-                getString(R.string.foodHead_6),
-                getString(R.string.foodHead_7),
-                getString(R.string.foodHead_8),
-        };
-
-        foodImageResource = new int[]{
-                R.drawable.food1,
-                R.drawable.food8,
-                R.drawable.food2,
-                R.drawable.food3,
-                R.drawable.food4,
-                R.drawable.food5,
-                R.drawable.food6,
-                R.drawable.food7,
-
-        };
-
-        for (int i=0; i<foodHeading.length;i++){
-            Food food = new Food(foodHeading[i],foodImageResource[i]);
-            foodArrayList.add(food);
-        }
+//        foodArrayList = new ArrayList<>();
+//
+//        foodHeading = new String[]{
+//                getString(R.string.foodHead_1),
+//                getString(R.string.foodHead_2),
+//                getString(R.string.foodHead_3),
+//                getString(R.string.foodHead_4),
+//                getString(R.string.foodHead_5),
+//                getString(R.string.foodHead_6),
+//                getString(R.string.foodHead_7),
+//                getString(R.string.foodHead_8),
+//        };
+//
+//        foodImageResource = new int[]{
+//                R.drawable.food1,
+//                R.drawable.food8,
+//                R.drawable.food2,
+//                R.drawable.food3,
+//                R.drawable.food4,
+//                R.drawable.food5,
+//                R.drawable.food6,
+//                R.drawable.food7,
+//
+//        };
+//
+//        for (int i=0; i<foodHeading.length;i++){
+//            Food food = new Food(foodHeading[i],foodImageResource[i]);
+//            foodArrayList.add(food);
+//        }
     }
 }

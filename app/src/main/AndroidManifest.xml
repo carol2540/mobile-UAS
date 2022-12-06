@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="umn.ac.id.uas" >
+    package="umn.ac.id.uas">
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UAS"
-        tools:targetApi="31" >
-        <activity
-            android:name=".RecipeActivity"
-            android:exported="false" />
+        tools:targetApi="31">
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -25,14 +22,14 @@
         <activity
             android:name=".Regis"
             android:exported="false"
-            android:label="Register"/>
+            android:label="Register" />
         <activity
             android:name=".Login"
             android:exported="true"
-            android:label="Login"/>
+            android:label="Login" />
         <activity
             android:name=".WelcomeActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,5 +37,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -35,7 +35,7 @@ public class AdapterRecipe extends RecyclerView.Adapter<AdapterRecipe.MyHolderRe
 
         Food food = foodArrayList.get(position);
         holder.foodHeading.setText(food.heading);
-        holder.foodImage.setImageResource(food.foodImage);
+//        holder.foodImage.setImageResource(food.foodImage);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AdapterRecipe extends RecyclerView.Adapter<AdapterRecipe.MyHolderRe
         public MyHolderRecipe(@NonNull View itemView) {
             super(itemView);
             foodImage = itemView.findViewById(R.id.recipe_image);
-            foodHeading = itemView.findViewById(R.id.recipe_image);
+//            foodHeading = itemView.findViewById(R.id.recipe_image);
         }
     }
 }

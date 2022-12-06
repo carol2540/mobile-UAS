@@ -1,5 +1,6 @@
 package umn.ac.id.uas;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,72 +9,105 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
-    private ArrayList<Food> foodArrayList;
-    private String[] foodHeading;
-    private int[] foodImageResource;
-    private RecyclerView recyclerview;
+    View view;
+    ArrayList<Food> foodArrayList;
+    RecyclerView recyclerview;
+    MyAdapter myAdapter;
+    FirebaseFirestore db;
+//    ProgressDialog progressDialog;
 
-    @Override
-    public void onCreate(Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
-    }
+//    @Override
+//    public void onCreate(Bundle saveInstanceState) {
+//        super.onCreate(saveInstanceState);
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        view =  inflater.inflate(R.layout.fragment_home, container, false);
+        db = FirebaseFirestore.getInstance();
+        foodArrayList  = new ArrayList<Food>();
+
+//        progressDialog = new ProgressDialog(getContext());
+//        progressDialog.setCancelable(false);
+//        progressDialog.setMessage("data fatching...");
+//        progressDialog.show();
+
+        db.collection("foods").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for (QueryDocumentSnapshot document: task.getResult()){
+                        foodArrayList.add(document.toObject(Food.class));
+                    }
+                    recyclerview = view.findViewById(R.id.recyclerview);
+                    recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerview.setHasFixedSize(true);
+                    MyAdapter myAdapter = new MyAdapter(getActivity(),foodArrayList);
+                    recyclerview.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged();
+
+                }
+            }
+        });
+        return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        
-        dataInitialize();
-        recyclerview = view.findViewById(R.id.recyclerview);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerview.setHasFixedSize(true);
-        MyAdapter myAdapter = new MyAdapter(getContext(),foodArrayList);
-        recyclerview.setAdapter(myAdapter);
-        myAdapter.notifyDataSetChanged();
+//    private void dataInitialize() {
+//
+//        db.collection("foods").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if(task.isSuccessful()){
+//                            for (QueryDocumentSnapshot document: task.getResult()){
+//                                foodArrayList.add(document.toObject(Food.class));
+//                            }
+//
+//                        }
+//                    }
+//                });
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                        if (error != null){
+//                            if (progressDialog.isShowing())
+//                                progressDialog.dismiss();
+//                            Log.e("Firestore error", error.getMessage());
+//                            return;
+//                        }
+//
+//                        for (DocumentChange dc : value.getDocumentChanges()){
+//                            if (dc.getType() == DocumentChange.Type.ADDED){
+//
+//                                foodArrayList.add(dc.getDocument().toObject(Food.class));
+//
+//                            }
+//
+//                            myAdapter.notifyDataSetChanged();
+//                            if (progressDialog.isShowing())
+//                                progressDialog.dismiss();
+//                        }
+//
+//
+//                    }
+//                });
     }
-
-    private void dataInitialize() {
-        foodArrayList = new ArrayList<>();
-
-        foodHeading = new String[]{
-                getString(R.string.foodHead_1),
-                getString(R.string.foodHead_2),
-                getString(R.string.foodHead_3),
-                getString(R.string.foodHead_4),
-                getString(R.string.foodHead_5),
-                getString(R.string.foodHead_6),
-                getString(R.string.foodHead_7),
-                getString(R.string.foodHead_8),
-        };
-
-        foodImageResource = new int[]{
-                R.drawable.food1,
-                R.drawable.food8,
-                R.drawable.food2,
-                R.drawable.food3,
-                R.drawable.food4,
-                R.drawable.food5,
-                R.drawable.food6,
-                R.drawable.food7,
-
-        };
-
-        for (int i=0; i<foodHeading.length;i++){
-            Food food = new Food(foodHeading[i],foodImageResource[i]);
-            foodArrayList.add(food);
-        }
-    }
-}
