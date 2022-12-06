@@ -2,20 +2,20 @@ package umn.ac.id.uas;
 
 public class Food {
     String heading;
-    int foodImage;
+    String foodImage;
 
     public Food(){}
 
-    public Food(String heading, int foodImage) {
+    public Food(String heading, String foodImage) {
         this.heading = heading;
         this.foodImage = foodImage;
     }
 
-    public int getFoodImage() {
+    public String getFoodImage() {
         return this.foodImage;
     }
 
-    public void setFoodImage(int foodImage) {
+    public void setFoodImage(String foodImage) {
         this.foodImage = foodImage;
     }
 
