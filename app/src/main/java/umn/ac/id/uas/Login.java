@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,7 @@ public class Login extends AppCompatActivity {
         btnRegis = findViewById(R.id.regis_btn);
 
         mAuth = FirebaseAuth.getInstance();
+
         //progress ststus
 //        progressDialog = new ProgressDialog(Login.this);
 //        progressDialog.setTitle("Loading");
@@ -45,39 +48,59 @@ public class Login extends AppCompatActivity {
 
         //onclick btnRegis
         btnRegis.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), Regis.class));
+            startActivity(new Intent(Login.this, Regis.class));
         });
 
         //onclick btnLogin
         btnLogin.setOnClickListener(v -> {
-            if(loginEmail.getText().length()>0 && loginPass.getText().length()>0){
-                login(loginEmail.getText().toString(), loginPass.getText().toString());
-            }else{
-                Toast.makeText(getApplicationContext(),"Please input your email or password", Toast.LENGTH_SHORT).show();
-            }
+            login();
         });
     }
     //firebase login logic
-    private void login(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful() && task.getResult()!=null){
-                    if(task.getResult().getUser()!=null){
-                        reload();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Loginfailed", Toast.LENGTH_SHORT).show();
+    private void login() {
+        String email = loginEmail.getText().toString();
+        String password = loginPass.getText().toString();
+
+        if(TextUtils.isEmpty(email)) {
+            loginEmail.setError("Email can't be empty");
+            loginEmail.requestFocus();
+        } else if (TextUtils.isEmpty(password)) {
+            loginPass.setError("Password can't be empty");
+            loginPass.requestFocus();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()) {
+                        Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Login.this, navbar.class));
+                    } else {
+                        Toast.makeText(Login.this, "Login Failed: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(), "Loginfailed", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        }
+
+//        mAuth.signInWithEmailAndPassword(email,password)
+//            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if(task.isSuccessful()){
+//                        Log.d("Login", "signInWithEmail:success");
+//                        FirebaseUser user = mAuth.getCurrentUser();
+//                        Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
+//                        reload();
+//                    }else{
+//                        Log.w("Login", "SignInWithEmail:failure", task.getException());
+//                        Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
     }
 
-    private void reload() {
-        startActivity(new Intent(getApplicationContext(), navbar.class));
-    }
+//    private void reload() {
+//        startActivity(new Intent(getApplicationContext(), navbar.class));
+//    }
 
     //firebase onstart
     @Override
@@ -86,7 +109,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            reload();
+            startActivity(new Intent(Login.this, navbar.class));
         }
     }
 
