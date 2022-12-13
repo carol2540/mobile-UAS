@@ -61,7 +61,9 @@ public class UploadRecipe extends AppCompatActivity {
                             case 0:
                                 Intent intent = new Intent(getApplicationContext(), EditorRecipe.class);
                                 intent.putExtra("id", list.get(pos).getId());
-                                intent.putExtra("foodName", list.get(pos).getFoodName());
+                                //tolong di edit lagi
+                                intent.putExtra("heading", list.get(pos).getFoodName());
+                                startActivity(intent);
                                 break;
                             case 1:
                                 deleteData(list.get(pos).getId());
@@ -82,14 +84,14 @@ public class UploadRecipe extends AppCompatActivity {
         btnAdd.setOnClickListener(v ->{
             startActivity(new Intent(getApplicationContext(), EditorRecipe.class));
         });
-        getData();
+//        getData();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        getData();
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getData();
+    }
 
     private void getData(){
         progressDialog.show();

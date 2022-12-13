@@ -58,7 +58,8 @@ public class EditorRecipe extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent!=null){
             id = intent.getStringExtra("id");
-            foodName.setText(intent.getStringExtra("foodName"));
+            //foodName rada sus, bisa ganti heading
+            foodName.setText(intent.getStringExtra("heading"));
         }
     }
 
@@ -75,6 +76,7 @@ public class EditorRecipe extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(), "Successfully loaded", Toast.LENGTH_SHORT).show();
+                                finish();
                             }else{
                                 Toast.makeText(getApplicationContext(), "Filed to load", Toast.LENGTH_SHORT).show();
                             }
