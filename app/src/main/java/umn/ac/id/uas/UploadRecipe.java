@@ -82,7 +82,7 @@ public class UploadRecipe extends AppCompatActivity {
         recyclerView.setAdapter(foodAdapter);
 
         btnAdd.setOnClickListener(v ->{
-            startActivity(new Intent(getApplicationContext(), EditorRecipe.class));
+            startActivity(new Intent(this, UploadRecipeDetails.class));
         });
 //        getData();
     }

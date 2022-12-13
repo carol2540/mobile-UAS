@@ -19,7 +19,7 @@ public class navbar extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment = new HomeFragment();
-    RecipeFragment recipeFragment = new RecipeFragment(); //udah pake activity
+//    RecipeFragment recipeFragment = new RecipeFragment();
     SearchFragment searchFragment = new SearchFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
@@ -41,8 +41,9 @@ public class navbar extends AppCompatActivity {
                         return true;
                     case R.id.my_recipes:
 //                        startActivity(new Intent(getApplicationContext(), Myrecipe.class));
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
-                        overridePendingTransition(0,0);
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
+                        Intent intent = new Intent(navbar.this, UploadRecipe.class);
+                        startActivity(intent);
                         return true;
                     case R.id.search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,searchFragment).commit();
