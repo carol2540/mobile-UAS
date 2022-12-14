@@ -1,18 +1,14 @@
 package umn.ac.id.uas;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class navbar extends AppCompatActivity {
 
@@ -42,7 +38,7 @@ public class navbar extends AppCompatActivity {
                     case R.id.my_recipes:
 //                        startActivity(new Intent(getApplicationContext(), Myrecipe.class));
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
-                        Intent intent = new Intent(navbar.this, UploadRecipe.class);
+                        Intent intent = new Intent(navbar.this, MyRecipeActivity.class);
                         startActivity(intent);
                         return true;
                     case R.id.search:

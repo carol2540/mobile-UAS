@@ -1,6 +1,7 @@
 package umn.ac.id.uas;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.imageview.ShapeableImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<Food> foodArrayList;
+    ArrayList<Upload> recipes;
 
-    public MyAdapter(Context context, ArrayList<Food> foodArrayList) {
+    public MyAdapter(Context context, ArrayList<Upload> recipes) {
         this.context = context;
-        this.foodArrayList = foodArrayList;
+        this.recipes = recipes;
     }
 
     @NonNull
@@ -36,19 +36,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Food food = foodArrayList.get(position);
-        holder.foodHeading.setText(food.getHeading());
-        Picasso.get().load(food.getFoodImage()).into(holder.foodImage);
+        Upload recipe = recipes.get(position);
+        holder.foodHeading.setText(recipe.getName());
+        Log.d("IMAGEURL", recipe.getImageUrl());
+        Picasso.get().load(recipe.getImageUrl()).into(holder.foodImage);
     }
 
     @Override
     public int getItemCount() {
-        return foodArrayList.size();
+        return recipes.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        ShapeableImageView foodImage;
+        ImageView foodImage;
         TextView foodHeading;
 
 
