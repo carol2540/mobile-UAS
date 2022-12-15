@@ -33,7 +33,7 @@ public class UploadRecipe extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Upload> list =new ArrayList<>();
-    private MyAdapter foodAdapter;
+    private FoodAdapter foodAdapter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -49,8 +49,8 @@ public class UploadRecipe extends AppCompatActivity {
         progressDialog = new ProgressDialog(UploadRecipe.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Fetching Data...");
-        foodAdapter = new MyAdapter(getApplicationContext(), list);
-        foodAdapter.setDialog(new MyAdapter.Dialog() {
+        foodAdapter = new FoodAdapter(getApplicationContext(), list);
+        foodAdapter.setDialog(new FoodAdapter.Dialog() {
             @Override
             public void onClick(int pos) {
                 final CharSequence[] dialogItem = {"Edit", "Delete"};

@@ -81,9 +81,9 @@ public class EditorRecipe extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent!=null){
             id = intent.getStringExtra("id");
-            foodName.setText(intent.getStringExtra("heading"));
+            foodName.setText(intent.getStringExtra("name"));
             foodRecipe.setText(intent.getStringExtra("recipe"));
-            Picasso.get().load(intent.getStringExtra("foodImage")).into(foodImage);
+            Picasso.get().load(intent.getStringExtra("imageUrl")).into(foodImage);
         }
     }
 

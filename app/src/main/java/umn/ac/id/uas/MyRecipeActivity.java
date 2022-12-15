@@ -41,7 +41,7 @@ public class MyRecipeActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
     private ArrayList<Upload> list =new ArrayList<>();
-    private MyAdapter foodAdapter;
+    private FoodAdapter foodAdapter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -57,8 +57,8 @@ public class MyRecipeActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(MyRecipeActivity.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Fetching Data...");
-        foodAdapter = new MyAdapter(getApplicationContext(), list);
-        foodAdapter.setDialog(new MyAdapter.Dialog() {
+        foodAdapter = new FoodAdapter(getApplicationContext(), list);
+        foodAdapter.setDialog(new FoodAdapter.Dialog() {
             @Override
             public void onClick(int pos) {
                 final CharSequence[] dialogItem = {"Edit", "Delete"};
@@ -70,7 +70,9 @@ public class MyRecipeActivity extends AppCompatActivity {
                             case 0:
                                 Intent intent = new Intent(getApplicationContext(), EditorRecipe.class);
                                 intent.putExtra("id", list.get(pos).getId());
-                                intent.putExtra("heading", list.get(pos).getName());
+                                intent.putExtra("name", list.get(pos).getName());
+                                intent.putExtra("recipe", list.get(pos).getRecipe());
+                                intent.putExtra("imageUrl", list.get(pos).getImageUrl());
                                 startActivity(intent);
                                 break;
                             case 1:
