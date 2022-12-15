@@ -1,5 +1,6 @@
 package umn.ac.id.uas;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -17,10 +18,21 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import umn.ac.id.uas.adapter.FoodAdapter;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Upload> recipes;
+    private Dialog dialog;
+
+    public interface Dialog{
+        void onClick(int pos);
+    }
+    public void setDialog(Dialog dialog) {
+        this.dialog = dialog;
+    }
+
 
     public MyAdapter(Context context, ArrayList<Upload> recipes) {
         this.context = context;
@@ -54,6 +66,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         ImageView foodImage;
         TextView foodHeading;
         Button btnSeeRecipe;
+        TextView foodName;
+
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -61,6 +75,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             foodImage = itemView.findViewById(R.id.food_image);
             foodHeading = itemView.findViewById(R.id.foodHeading);
             btnSeeRecipe = itemView.findViewById(R.id.btn_see_recipe);
+
+            foodName = itemView.findViewById(R.id.foodName);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(dialog!=null){
+                        dialog.onClick(getLayoutPosition());
+                    }
+                }
+            });
 
             btnSeeRecipe.setOnClickListener(new View.OnClickListener() {
                 @Override
