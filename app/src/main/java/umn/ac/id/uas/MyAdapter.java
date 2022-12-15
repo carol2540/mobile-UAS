@@ -1,10 +1,12 @@
 package umn.ac.id.uas;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,12 +53,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         ImageView foodImage;
         TextView foodHeading;
+        Button btnSeeRecipe;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             foodImage = itemView.findViewById(R.id.food_image);
             foodHeading = itemView.findViewById(R.id.foodHeading);
+            btnSeeRecipe = itemView.findViewById(R.id.btn_see_recipe);
+
+            btnSeeRecipe.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), RecipeDetailsActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

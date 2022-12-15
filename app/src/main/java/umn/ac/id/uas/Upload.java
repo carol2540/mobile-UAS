@@ -5,12 +5,13 @@ public class Upload {
     private String mImageUrl;
     private String mRecipe;
     private String mAuthorId;
+    private String mAuthorName;
 
     public Upload() {
 
     }
 
-    public Upload(String author, String imageUrl, String recipe, String name) {
+    public Upload(String author, String imageUrl, String recipe, String name, String authorName) {
         if(name.trim().equals("")){
             name = "No Name";
         }
@@ -19,6 +20,7 @@ public class Upload {
         mName = name;
         mImageUrl = imageUrl;
         mRecipe = recipe;
+        mAuthorName = authorName;
     }
 
     public String getAuthorId() { return mAuthorId; }
@@ -44,5 +46,9 @@ public class Upload {
     public String getRecipe() { return mRecipe; }
 
     public void setRecipe(String recipe) { mRecipe = recipe; }
+
+    public String getAuthorName() { return mAuthorName; }
+
+    public void setAuthorName(String authorName) { mAuthorName = authorName; }
 
 }
