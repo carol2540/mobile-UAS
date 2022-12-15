@@ -1,6 +1,5 @@
 package umn.ac.id.uas;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -18,13 +17,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import umn.ac.id.uas.adapter.FoodAdapter;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Upload> recipes;
-    private Dialog dialog;
+    static Dialog dialog;
 
     public interface Dialog{
         void onClick(int pos);

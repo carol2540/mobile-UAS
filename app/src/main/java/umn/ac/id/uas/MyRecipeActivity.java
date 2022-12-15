@@ -40,8 +40,8 @@ public class MyRecipeActivity extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-    private List<Recipe> list =new ArrayList<>();
-    private FoodAdapter foodAdapter;
+    private ArrayList<Upload> list =new ArrayList<>();
+    private MyAdapter foodAdapter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -57,8 +57,8 @@ public class MyRecipeActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(MyRecipeActivity.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Fetching Data...");
-        foodAdapter = new FoodAdapter(getApplicationContext(), list);
-        foodAdapter.setDialog(new FoodAdapter.Dialog() {
+        foodAdapter = new MyAdapter(getApplicationContext(), list);
+        foodAdapter.setDialog(new MyAdapter.Dialog() {
             @Override
             public void onClick(int pos) {
                 final CharSequence[] dialogItem = {"Edit", "Delete"};
@@ -70,8 +70,7 @@ public class MyRecipeActivity extends AppCompatActivity {
                             case 0:
                                 Intent intent = new Intent(getApplicationContext(), EditorRecipe.class);
                                 intent.putExtra("id", list.get(pos).getId());
-                                //tolong di edit lagi
-                                intent.putExtra("heading", list.get(pos).getFoodName());
+                                intent.putExtra("heading", list.get(pos).getName());
                                 startActivity(intent);
                                 break;
                             case 1:
@@ -104,43 +103,43 @@ public class MyRecipeActivity extends AppCompatActivity {
 
     private void getData(){
         progressDialog.show();
-        db.collection("foods")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        list.clear();
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot document :task.getResult()){
-                                Recipe recipe = new Recipe(document.getString("heading"));
-                                recipe.setId(document.getId());
-                                list.add(recipe);
-                            }
-                            foodAdapter.notifyDataSetChanged();
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Data failed fetching", Toast.LENGTH_SHORT).show();
+        db.collection("recipes")
+            .get()
+            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    list.clear();
+                    if(task.isSuccessful()){
+                        for (QueryDocumentSnapshot document :task.getResult()){
+                            Upload recipe = new Upload(document.getString("author"), document.getString("imageUrl"), document.getString("recipe"), document.getString("name"), document.getString("authorName"));
+                            recipe.setId(document.getId());
+                            list.add(recipe);
                         }
-                        progressDialog.dismiss();
+                        foodAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Data failed fetching", Toast.LENGTH_SHORT).show();
                     }
-                });
+                    progressDialog.dismiss();
+                }
+            });
     }
 
     private void deleteData(String id){
         progressDialog.show();
-        db.collection("foods").document(id)
-                .delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(), "Data filed to delete", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Data successfully delete", Toast.LENGTH_SHORT).show();
-                        }
-                        progressDialog.dismiss();
-                        getData();
+        db.collection("recipes").document(id)
+            .delete()
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(!task.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "Data filed to delete", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Data successfully delete", Toast.LENGTH_SHORT).show();
                     }
-                });
+                    progressDialog.dismiss();
+                    getData();
+                }
+            });
 
     }
 

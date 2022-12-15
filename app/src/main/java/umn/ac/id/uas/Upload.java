@@ -6,6 +6,7 @@ public class Upload {
     private String mRecipe;
     private String mAuthorId;
     private String mAuthorName;
+    private String id;
 
     public Upload() {
 
@@ -22,6 +23,10 @@ public class Upload {
         mRecipe = recipe;
         mAuthorName = authorName;
     }
+
+    public String getId() { return this.id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getAuthorId() { return mAuthorId; }
 

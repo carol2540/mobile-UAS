@@ -10,7 +10,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="14dp">
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/foodImage"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="#ccc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_baseline_image_24"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,8 +33,28 @@
                 android:id="@+id/foodName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Food Name"
                 android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/black">
+
+            <EditText
+                android:id="@+id/foodRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Food Recipe"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:minLines="4"
+                android:maxLines="12"
+                android:gravity="top"/>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/btn_save"
@@ -47,6 +78,6 @@
 
             />
 
-</LinearLayout>
+    </LinearLayout>
 
 </ScrollView>

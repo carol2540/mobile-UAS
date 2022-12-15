@@ -50,7 +50,7 @@ public class UploadRecipe extends AppCompatActivity {
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Fetching Data...");
         foodAdapter = new MyAdapter(getApplicationContext(), list);
-        foodAdapter.setDialog(new FoodAdapter.Dialog() {
+        foodAdapter.setDialog(new MyAdapter.Dialog() {
             @Override
             public void onClick(int pos) {
                 final CharSequence[] dialogItem = {"Edit", "Delete"};
@@ -62,14 +62,13 @@ public class UploadRecipe extends AppCompatActivity {
                             case 0:
                                 Intent intent = new Intent(getApplicationContext(), EditorRecipe.class);
                                 intent.putExtra("id", list.get(pos).getId());
-                                //tolong di edit lagi
-                                intent.putExtra("name", list.get(pos).getFoodName());
-                                intent.putExtra("recipe", list.get(pos).getFoodRecipe());
-                                intent.putExtra("foodImage", list.get(pos).getFoodImage());
+                                intent.putExtra("name", list.get(pos).getName());
+                                intent.putExtra("recipe", list.get(pos).getRecipe());
+                                intent.putExtra("foodImage", list.get(pos).getImageUrl());
                                 startActivity(intent);
                                 break;
                             case 1:
-                                deleteData(list.get(pos).getId(), list.get(pos).getFoodImage());
+                                deleteData(list.get(pos).getId(), list.get(pos).getImageUrl());
                                 break;
                         }
                     }
@@ -106,7 +105,7 @@ public class UploadRecipe extends AppCompatActivity {
                         list.clear();
                         if(task.isSuccessful()){
                             for (QueryDocumentSnapshot document :task.getResult()){
-                                Upload recipe = new Recipe(document.getString("heading"), document.getString("recipe"), document.getString("foodImage"));
+                                Upload recipe = new Upload(document.getString("author"), document.getString("imageUrl"), document.getString("recipe"), document.getString("name"), document.getString("author"));
                                 recipe.setId(document.getId());
                                 list.add(recipe);
                             }
