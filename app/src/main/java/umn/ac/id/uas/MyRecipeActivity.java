@@ -11,27 +11,36 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.common.collect.Collections2;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import umn.ac.id.uas.adapter.FoodAdapter;
 import umn.ac.id.uas.model.Recipe;
 
-public class UploadRecipe extends AppCompatActivity {
+public class MyRecipeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FloatingActionButton btnAdd;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
     private List<Recipe> list =new ArrayList<>();
     private FoodAdapter foodAdapter;
     private ProgressDialog progressDialog;
@@ -39,14 +48,14 @@ public class UploadRecipe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_recipe);
+        setContentView(R.layout.activity_my_recipe);
         getSupportActionBar().setTitle("Upload Recipe");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.recyclerview_add);
         btnAdd = findViewById(R.id.btn_add);
 
-        progressDialog = new ProgressDialog(UploadRecipe.this);
+        progressDialog = new ProgressDialog(MyRecipeActivity.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Fetching Data...");
         foodAdapter = new FoodAdapter(getApplicationContext(), list);
@@ -54,7 +63,7 @@ public class UploadRecipe extends AppCompatActivity {
             @Override
             public void onClick(int pos) {
                 final CharSequence[] dialogItem = {"Edit", "Delete"};
-                AlertDialog.Builder dialog = new AlertDialog.Builder(UploadRecipe.this);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MyRecipeActivity.this);
                 dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -85,7 +94,7 @@ public class UploadRecipe extends AppCompatActivity {
         recyclerView.setAdapter(foodAdapter);
 
         btnAdd.setOnClickListener(v ->{
-            startActivity(new Intent(getApplicationContext(), EditorRecipe.class));
+            startActivity(new Intent(this, UploadRecipeDetails.class));
         });
 //        getData();
     }

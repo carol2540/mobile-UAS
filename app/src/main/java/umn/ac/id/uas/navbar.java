@@ -1,25 +1,21 @@
 package umn.ac.id.uas;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class navbar extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment = new HomeFragment();
-    RecipeFragment recipeFragment = new RecipeFragment(); //udah pake activity
+//    RecipeFragment recipeFragment = new RecipeFragment();
     SearchFragment searchFragment = new SearchFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
@@ -41,8 +37,9 @@ public class navbar extends AppCompatActivity {
                         return true;
                     case R.id.my_recipes:
 //                        startActivity(new Intent(getApplicationContext(), Myrecipe.class));
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
-                        overridePendingTransition(0,0);
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
+                        Intent intent = new Intent(navbar.this, MyRecipeActivity.class);
+                        startActivity(intent);
                         return true;
                     case R.id.search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,searchFragment).commit();

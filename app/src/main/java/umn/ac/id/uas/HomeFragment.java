@@ -29,9 +29,8 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     View view;
-    ArrayList<Food> foodArrayList;
+    ArrayList<Upload> recipes;
     RecyclerView recyclerview;
-    MyAdapter myAdapter;
     FirebaseFirestore db;
 //    ProgressDialog progressDialog;
 
@@ -45,24 +44,24 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.fragment_home, container, false);
         db = FirebaseFirestore.getInstance();
-        foodArrayList  = new ArrayList<Food>();
+        recipes  = new ArrayList<Upload>();
 
 //        progressDialog = new ProgressDialog(getContext());
 //        progressDialog.setCancelable(false);
 //        progressDialog.setMessage("data fatching...");
 //        progressDialog.show();
 
-        db.collection("foods").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("recipes").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
                     for (QueryDocumentSnapshot document: task.getResult()){
-                        foodArrayList.add(document.toObject(Food.class));
+                        recipes.add(document.toObject(Upload.class));
                     }
                     recyclerview = view.findViewById(R.id.recyclerview);
                     recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerview.setHasFixedSize(true);
-                    MyAdapter myAdapter = new MyAdapter(getActivity(),foodArrayList);
+                    MyAdapter myAdapter = new MyAdapter(getActivity(),recipes);
                     recyclerview.setAdapter(myAdapter);
                     myAdapter.notifyDataSetChanged();
 
@@ -79,7 +78,7 @@ public class HomeFragment extends Fragment {
 //                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
 //                        if(task.isSuccessful()){
 //                            for (QueryDocumentSnapshot document: task.getResult()){
-//                                foodArrayList.add(document.toObject(Food.class));
+//                                recipes.add(document.toObject(Food.class));
 //                            }
 //
 //                        }

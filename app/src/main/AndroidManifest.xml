@@ -23,7 +23,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".UploadRecipe"
+            android:name=".MyRecipeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UploadRecipeDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
