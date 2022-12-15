@@ -26,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -72,10 +73,12 @@ public class MyRecipeActivity extends AppCompatActivity {
                                 intent.putExtra("id", list.get(pos).getId());
                                 //tolong di edit lagi
                                 intent.putExtra("heading", list.get(pos).getFoodName());
+                                intent.putExtra("recipe", list.get(pos).getFoodRecipe());
+                                intent.putExtra("foodImage", list.get(pos).getFoodImage());
                                 startActivity(intent);
                                 break;
                             case 1:
-                                deleteData(list.get(pos).getId());
+                                deleteData(list.get(pos).getId(), list.get(pos).getFoodImage());
                                 break;
                         }
                     }
@@ -112,7 +115,7 @@ public class MyRecipeActivity extends AppCompatActivity {
                         list.clear();
                         if(task.isSuccessful()){
                             for (QueryDocumentSnapshot document :task.getResult()){
-                                Recipe recipe = new Recipe(document.getString("heading"));
+                                Recipe recipe = new Recipe(document.getString("heading"), document.getString("recipe"), document.getString("foodImage"));
                                 recipe.setId(document.getId());
                                 list.add(recipe);
                             }
@@ -125,7 +128,7 @@ public class MyRecipeActivity extends AppCompatActivity {
                 });
     }
 
-    private void deleteData(String id){
+    private void deleteData(String id, String foodImage){
         progressDialog.show();
         db.collection("foods").document(id)
                 .delete()
@@ -133,12 +136,17 @@ public class MyRecipeActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(!task.isSuccessful()){
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Data filed to delete", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(getApplicationContext(), "Data successfully delete", Toast.LENGTH_SHORT).show();
+                            FirebaseStorage.getInstance().getReferenceFromUrl(foodImage).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    progressDialog.dismiss();
+                                    getData();
+                                }
+                            });
                         }
-                        progressDialog.dismiss();
-                        getData();
                     }
                 });
 

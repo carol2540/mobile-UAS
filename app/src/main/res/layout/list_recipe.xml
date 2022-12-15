@@ -10,12 +10,10 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:paddingTop="8dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/recipe_image"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/foodImage"
         android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:layout_height="100dp"
         android:src="@drawable/food1" />
     <LinearLayout
         android:layout_width="match_parent"
