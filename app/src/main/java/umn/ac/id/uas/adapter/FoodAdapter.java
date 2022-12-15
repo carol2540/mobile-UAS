@@ -6,10 +6,13 @@ import android.hardware.lights.LightState;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ConcurrentModificationException;
 import java.util.List;
@@ -45,6 +48,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.foodName.setText(list.get(position).getFoodName());
+        Glide.with(context).load(list.get(position).getFoodImage()).into(holder.foodImage);
     }
 
     @Override
@@ -54,10 +58,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView foodName;
+        ImageView foodImage;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             foodName = itemView.findViewById(R.id.foodName);
+            foodImage = itemView.findViewById(R.id.foodImage);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
