@@ -23,6 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
     ArrayList<Upload> recipes;
     static Dialog dialog;
+    static int itemPosition;
 
     public interface Dialog{
         void onClick(int pos);
@@ -47,7 +48,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         Upload recipe = recipes.get(position);
         holder.foodHeading.setText(recipe.getName());
         Log.d("IMAGEURL", recipe.getImageUrl());
@@ -60,13 +60,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
         ImageView foodImage;
         TextView foodHeading;
         Button btnSeeRecipe;
         TextView foodName;
-
-
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), RecipeDetailsActivity.class);
+                    intent.putExtra("pos", getLayoutPosition());
                     view.getContext().startActivity(intent);
                 }
             });

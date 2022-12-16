@@ -13,60 +13,66 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
-    <TextView
-        android:id="@+id/tv_recipe_name_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Recipe Name: "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/iv_recipe_image"/>
-
-    <TextView
-        android:id="@+id/tv_recipe_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/tv_recipe_name_placeholder"
-        android:layout_below="@id/iv_recipe_image"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_recipe_author_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Author: "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_below="@id/tv_recipe_name_placeholder"/>
-
-    <TextView
-        android:id="@+id/tv_recipe_author"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/tv_recipe_name_placeholder"
-        android:layout_below="@id/tv_recipe_name"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_recipe_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/tv_recipe_author"
-        android:text="Recipe: "
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/tv_recipe"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/tv_recipe_placeholder"
-        android:textSize="16sp"/>
+        android:padding="10dp"
+        android:layout_below="@id/iv_recipe_image">
+
+        <TextView
+            android:id="@+id/tv_recipe_name_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Recipe Name: "
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/tv_recipe_name_placeholder"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_recipe_author_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Author: "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_recipe_name_placeholder"/>
+
+        <TextView
+            android:id="@+id/tv_recipe_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/tv_recipe_author_placeholder"
+            android:layout_below="@id/tv_recipe_name"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_recipe_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_recipe_author"
+            android:text="Recipe: "
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_recipe_placeholder"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

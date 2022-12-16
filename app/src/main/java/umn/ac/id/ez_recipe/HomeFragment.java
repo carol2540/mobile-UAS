@@ -25,12 +25,6 @@ public class HomeFragment extends Fragment {
     ArrayList<Upload> recipes;
     RecyclerView recyclerview;
     FirebaseFirestore db;
-//    ProgressDialog progressDialog;
-
-//    @Override
-//    public void onCreate(Bundle saveInstanceState) {
-//        super.onCreate(saveInstanceState);
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,11 +32,6 @@ public class HomeFragment extends Fragment {
         view =  inflater.inflate(R.layout.fragment_home, container, false);
         db = FirebaseFirestore.getInstance();
         recipes  = new ArrayList<Upload>();
-
-//        progressDialog = new ProgressDialog(getContext());
-//        progressDialog.setCancelable(false);
-//        progressDialog.setMessage("data fatching...");
-//        progressDialog.show();
 
         db.collection("recipes").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -64,42 +53,4 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-//    private void dataInitialize() {
-//
-//        db.collection("foods").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if(task.isSuccessful()){
-//                            for (QueryDocumentSnapshot document: task.getResult()){
-//                                recipes.add(document.toObject(Food.class));
-//                            }
-//
-//                        }
-//                    }
-//                });
-//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                        if (error != null){
-//                            if (progressDialog.isShowing())
-//                                progressDialog.dismiss();
-//                            Log.e("Firestore error", error.getMessage());
-//                            return;
-//                        }
-//
-//                        for (DocumentChange dc : value.getDocumentChanges()){
-//                            if (dc.getType() == DocumentChange.Type.ADDED){
-//
-//                                foodArrayList.add(dc.getDocument().toObject(Food.class));
-//
-//                            }
-//
-//                            myAdapter.notifyDataSetChanged();
-//                            if (progressDialog.isShowing())
-//                                progressDialog.dismiss();
-//                        }
-//
-//
-//                    }
-//                });
-    }
+}

@@ -36,8 +36,6 @@ public class navbar extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.my_recipes:
-//                        startActivity(new Intent(getApplicationContext(), Myrecipe.class));
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, recipeFragment).commit();
                         Intent intent = new Intent(navbar.this, MyRecipeActivity.class);
                         startActivity(intent);
                         return true;
