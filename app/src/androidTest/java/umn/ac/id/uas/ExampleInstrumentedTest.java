@@ -1,4 +1,4 @@
-package umn.ac.id.uas;
+package umn.ac.id.ez_recipe;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("umn.ac.id.uas", appContext.getPackageName());
+        assertEquals("umn.ac.id.ez_recipe", appContext.getPackageName());
     }
 }

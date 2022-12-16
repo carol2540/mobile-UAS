@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="umn.ac.id.uas">
+    package="umn.ac.id.ez_recipe">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,52 +13,52 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UAS"
+        android:theme="@style/Theme.EZ_RECIPE"
         tools:targetApi="31">
         <activity
-            android:name=".RecipeDetailsActivity"
+            android:name="umn.ac.id.ez_recipe.RecipeDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditorRecipe"
+            android:name="umn.ac.id.ez_recipe.EditorRecipe"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyRecipeActivity"
+            android:name="umn.ac.id.ez_recipe.MyRecipeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UploadRecipeDetails"
+            android:name="umn.ac.id.ez_recipe.UploadRecipeDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name="umn.ac.id.ez_recipe.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".navbar"
+            android:name="umn.ac.id.ez_recipe.navbar"
             android:exported="false" />
         <activity
-            android:name=".Regis"
+            android:name="umn.ac.id.ez_recipe.Regis"
             android:exported="false"
             android:label="Register" />
         <activity
-            android:name=".Login"
+            android:name="umn.ac.id.ez_recipe.Login"
             android:exported="true"
             android:label="Login" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name="umn.ac.id.ez_recipe.WelcomeActivity"
             android:exported="true">
 
             <!-- <activity -->

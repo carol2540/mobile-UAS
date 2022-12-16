@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.UAS" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.EZ_RECIPE" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/darkGreen</item>
         <item name="colorSecondary">@color/cream</item>
     </style>
