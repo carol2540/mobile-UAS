@@ -39,10 +39,10 @@ public class navbar extends AppCompatActivity {
                         Intent intent = new Intent(navbar.this, MyRecipeActivity.class);
                         startActivity(intent);
                         return true;
-                    case R.id.search:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,searchFragment).commit();
-                        overridePendingTransition(0,0);
-                        return true;
+//                    case R.id.search:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container,searchFragment).commit();
+//                        overridePendingTransition(0,0);
+//                        return true;
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                         overridePendingTransition(0,0);

@@ -39,7 +39,7 @@ public class UploadRecipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_recipe);
         getSupportActionBar().setTitle("Upload Recipe");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.recyclerview_add);
         btnAdd = findViewById(R.id.btn_add);
@@ -141,9 +141,9 @@ public class UploadRecipe extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        onBackPressed();
+//        return super.onSupportNavigateUp();
+//    }
 }

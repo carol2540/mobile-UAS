@@ -199,7 +199,9 @@ public class EditorRecipe extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(), "Successfully loaded", Toast.LENGTH_SHORT).show();
-                                finish();
+                                Intent intent = new Intent( EditorRecipe.this, navbar.class);
+                                startActivity(intent);
+//                                finish();
                             }else{
                                 Toast.makeText(getApplicationContext(), "Filed to load", Toast.LENGTH_SHORT).show();
                             }

@@ -9,10 +9,10 @@
         android:title="My Recipes"
         android:icon="@drawable/ic_menu_book"
         android:id="@+id/my_recipes"/>
-    <item
-        android:title="Search"
-        android:icon="@drawable/ic_search"
-        android:id="@+id/search"/>
+<!--    <item-->
+<!--        android:title="Search"-->
+<!--        android:icon="@drawable/ic_search"-->
+<!--        android:id="@+id/search"/>-->
     <item
         android:title="Profile"
         android:icon="@drawable/ic_profile"
