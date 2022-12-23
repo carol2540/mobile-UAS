@@ -41,7 +41,7 @@ public class MyRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_recipe);
         getSupportActionBar().setTitle("Upload Recipe");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.recyclerview_add);
         btnAdd = findViewById(R.id.btn_add);
@@ -141,7 +141,8 @@ public class MyRecipeActivity extends AppCompatActivity {
 
 //    @Override
 //    public boolean onSupportNavigateUp() {
-//        onBackPressed();
+//        Intent intent =  new Intent(MyRecipeActivity.this, navbar.class);
+//        startActivity(intent);
 //        return super.onSupportNavigateUp();
 //    }
 }

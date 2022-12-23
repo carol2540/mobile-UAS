@@ -73,7 +73,7 @@ public class EditorRecipe extends AppCompatActivity {
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditorRecipe.this, UploadRecipe.class);
+                Intent intent = new Intent(EditorRecipe.this, navbar.class);
                 startActivity(intent);
             }
         });
