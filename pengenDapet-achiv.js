@@ -1,2 +1,2 @@
-const sorting_num = ['1', '2', '5', '8', '4'];
-sorting_num.sort();
+const sort_num = ['1', '2', '5', '8', '4'];
+sort_num.sort();
