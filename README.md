@@ -8,6 +8,6 @@ Anggota kelompok:
 
 
 Link Google Play Store:
-https://play.google.com/store/apps/details?id=com.findurgimmy.umn.uas&pcampaignid=web_share
+https://play.google.com/store/apps/details?id=umn.ac.id.ez_recipe&pcampaignid=web_share
 
 
